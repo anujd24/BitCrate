@@ -21,7 +21,8 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
       data-slice-variation={slice.variation}
       className="bg-Dark-Charcoal text-white relative h-dvh overflow-hidden"
     >
-      <Heading>
+      
+      <Heading className="relative max-w-2xl place-self-start">
         <PrismicText field={slice.primary.heading} />
         </Heading>
 
