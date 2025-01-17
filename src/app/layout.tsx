@@ -26,7 +26,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${orbitron.variable} ${roboto.variable} antialiased`}
+        className={`${orbitron.variable} ${roboto.variable} 
+        antialiased font-mono font-medium text-zinc-800`}
       >
         {children}
       </body>

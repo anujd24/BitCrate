@@ -13,8 +13,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-orbitron)'],
-        mono: ['var(--font-roboto)',],
+        orbitron: ['var(--font-orbitron)'],
+        roboto: ['var(--font-roboto)', ],
       },
     },
   },
