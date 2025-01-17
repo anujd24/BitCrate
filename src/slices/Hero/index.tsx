@@ -18,6 +18,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
     <Bounded
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
+      className="bg-Dark-Charcoal text-white relative h-dvh overflow-hidden"
     >
       <PrismicRichText field={slice.primary.heading} />
       <PrismicRichText field={slice.primary.body} />
