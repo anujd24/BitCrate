@@ -25,11 +25,13 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
         <Heading className="relative max-w-2xl place-self-start">
         <PrismicText field={slice.primary.heading} />
         </Heading>
-      </div>
       
-
-      <PrismicRichText field={slice.primary.body} />
+      
+    <div className="text-white">
+       <PrismicRichText field={slice.primary.body} />
       <PrismicNextLink field={slice.primary.button} />
+    </div>
+    </div>
 
     </Bounded>
   );
