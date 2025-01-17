@@ -16,6 +16,11 @@ export default {
         orbitron: ['var(--font-orbitron)'],
         roboto: ['var(--font-roboto)', ],
       },
+      colors:{
+        "Dark-Charcoal" : "#121212",
+        "Vibrant-Purple" : "#3A0CA3",
+        "Hot-Pink"  : "#F72585"
+      }
     },
   },
   plugins: [fluid],
