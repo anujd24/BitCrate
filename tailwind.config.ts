@@ -1,5 +1,5 @@
 import type { Config } from "tailwindcss";
-import fluid, {extract} from "fluid-tailwind";
+import fluid, { extract, screens, fontSize} from "fluid-tailwind";
 
 export default {
   content: {files:[
@@ -11,6 +11,8 @@ export default {
   extract
 },
   theme: {
+    screens, 
+    fontSize,
     extend: {
       fontFamily: {
         orbitron: ['var(--font-orbitron)'],
