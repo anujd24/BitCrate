@@ -1,5 +1,5 @@
 import type { Config } from "tailwindcss";
-import fluid, { extract, screens, fontSize} from "fluid-tailwind";
+import fluid, { extract, screens, fontSize, FluidThemeConfig} from "fluid-tailwind";
 
 export default {
   content: {files:[
@@ -11,6 +11,9 @@ export default {
   extract
 },
   theme: {
+    fluid: (({ theme }) => ({
+      defaultScreens: ["20rem", theme("screens.lg")],
+    })) satisfies FluidThemeConfig,
     screens, 
     fontSize,
     extend: {

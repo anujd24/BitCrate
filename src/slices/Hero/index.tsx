@@ -28,8 +28,11 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
       
       
     <div className="flex relative w-full flex-col items-center justify-between ~gap-2/4 lg:flex-row">
-       <PrismicRichText field={slice.primary.body} />
-      <PrismicNextLink field={slice.primary.button} />
+      <div className="max-w-[45ch] font-semibold ~text-lg/xl">
+        <PrismicRichText field={slice.primary.body} />
+      </div>
+       
+        <PrismicNextLink field={slice.primary.button} />
     </div>
     </div>
 
