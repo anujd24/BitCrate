@@ -1,21 +1,28 @@
 {
   "format": "page",
   "id": "homepage",
+  "label": "Homepage",
+  "repeatable": false,
+  "status": true,
   "json": {
     "Main": {
       "slices": {
-        "config": {
-          "choices": {}
-        },
+        "type": "Slices",
         "fieldset": "Slice Zone",
-        "type": "Slices"
+        "config": {
+          "choices": {
+            "hero": {
+              "type": "SharedSlice"
+            }
+          }
+        }
       }
     },
     "SEO & Metadata": {
       "meta_title": {
         "config": {
-          "label": "Meta Title",
-          "placeholder": "A title of the page used for social media and search engines"
+          "label": "Bitcrate Consoles",
+          "placeholder": "console designs, controllers, and gaming setups."
         },
         "type": "Text"
       },
@@ -38,8 +45,5 @@
         "type": "Image"
       }
     }
-  },
-  "label": "Homepage",
-  "repeatable": false,
-  "status": true
+  }
 }
