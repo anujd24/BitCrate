@@ -1,5 +1,6 @@
 import { Content } from "@prismicio/client";
-import { SliceComponentProps } from "@prismicio/react";
+import { PrismicNextLink } from "@prismicio/next";
+import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import { JSX } from "react";
 
 /**
@@ -16,7 +17,10 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      Placeholder component for hero (variation: {slice.variation}) Slices
+      <PrismicRichText field={slice.primary.heading} />
+      <PrismicRichText field={slice.primary.body} />
+      <PrismicNextLink field={slice.primary.button} />
+
     </section>
   );
 };
