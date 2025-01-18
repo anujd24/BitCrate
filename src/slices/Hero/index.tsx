@@ -6,6 +6,7 @@ import { JSX } from "react";
 import { Bounded } from "@/components/Bounded";
 import { Heading } from "@/components/Heading";
 import { ButtonLink } from "@/components/ButtonLink";
+import { TallLogo } from "./TallLogo";
 
 /**
  * Props for `Hero`.
@@ -22,6 +23,11 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
       data-slice-variation={slice.variation}
       className="bg-Dark-Charcoal text-white relative h-dvh overflow-hidden"
     >
+
+      <div className="absolute">
+        <TallLogo className="w-full text-Vibrant-Purple"/>
+      </div>
+
       <div className="absolute inset-0 mx-auto mt-24 grid max-w-6xl grid-rows-[1fr,auto] place-items-end px-6 ~py-10/16">
         <Heading className="relative max-w-2xl place-self-start">
         <PrismicText field={slice.primary.heading} />
