@@ -16,10 +16,10 @@ export default function Header({}: Props) {
                 className="col-span-full row-start-2 md:col-span-1 md:col-start-2 md:row-start-1"
             >
                 <ul className="flex flex-wrap items-center justify-center gap-8">
-                    <li>Boards</li>
+                    <li>consoles</li>
                 </ul>
             </nav>
-            <div>
+            <div className='justify-self-end'>
                 <ButtonLink href={""} icon="cart" color='purple' aria-label='Cart (1)'>
                     Cart (1)
                 </ButtonLink>
