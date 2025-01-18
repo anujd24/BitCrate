@@ -11,42 +11,33 @@ export function Logo(props: SVGProps<SVGSVGElement>) {
       <title>Gaming Console Logo</title>
       {/* Console Base */}
       <rect
-        x="80"
-        y="50"
-        width="250"
-        height="100"
+        x="100"
+        y="80"
+        width="200"
+        height="70"
         rx="15"
         fill="currentColor"
       />
-      {/* Screen */}
+      {/* Console Details */}
       <rect
-        x="90"
-        y="60"
-        width="230"
-        height="60"
-        rx="8"
+        x="120"
+        y="90"
+        width="160"
+        height="20"
+        rx="5"
         fill="#ffffff"
       />
-      {/* Controller */}
-      <g transform="translate(155, 140)">
-        <rect
-          x="-30"
-          y="0"
-          width="60"
-          height="30"
-          rx="10"
-          fill="currentColor"
-        />
-        {/* Left Joystick */}
-        <circle cx="-15" cy="15" r="5" fill="#ffffff" />
-        {/* Right Joystick */}
-        <circle cx="15" cy="15" r="5" fill="#ffffff" />
-        {/* Buttons */}
-        <circle cx="5" cy="8" r="3" fill="#ffffff" />
-        <circle cx="5" cy="22" r="3" fill="#ffffff" />
-        <circle cx="25" cy="8" r="3" fill="#ffffff" />
-        <circle cx="25" cy="22" r="3" fill="#ffffff" />
-      </g>
+      <circle cx="135" cy="120" r="8" fill="#ffffff" />
+      <circle cx="165" cy="120" r="8" fill="#ffffff" />
+      <rect x="195" y="115" width="60" height="10" rx="2" fill="#ffffff" />
+
+      {/* Wire */}
+      <path
+        d="M200 80 C210 60, 240 60, 250 80"
+        stroke="currentColor"
+        strokeWidth="2"
+        fill="none"
+      />
     </svg>
   );
 }
