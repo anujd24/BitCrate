@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Orbitron } from '@next/font/google';
 import { Roboto } from '@next/font/google';
 import "./globals.css";
+import Header from "@/components/Header";
 
 const orbitron = Orbitron({ 
   subsets: ['latin'], 
@@ -29,7 +30,12 @@ export default function RootLayout({
         className={`${orbitron.variable} ${roboto.variable} 
         antialiased font-mono font-medium text-zinc-800`}
       >
+
+        <main>
+          <Header/>
         {children}
+        </main>
+        
       </body>
     </html>
   );
