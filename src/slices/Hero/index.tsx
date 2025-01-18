@@ -5,6 +5,7 @@ import { JSX } from "react";
 
 import { Bounded } from "@/components/Bounded";
 import { Heading } from "@/components/Heading";
+import { ButtonLink } from "@/components/ButtonLink";
 
 /**
  * Props for `Hero`.
@@ -31,8 +32,11 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
       <div className="max-w-[45ch] font-semibold ~text-lg/xl">
         <PrismicRichText field={slice.primary.body} />
       </div>
-       
-        <PrismicNextLink field={slice.primary.button} />
+       <ButtonLink field={slice.primary.button}
+       icon="console" className="text-white">
+        {slice.primary.button.text  }
+       </ButtonLink >
+        {/* <PrismicNextLink field={slice.primary.button} /> */}
     </div>
     </div>
 
