@@ -7,7 +7,7 @@ import { Bounded } from "@/components/Bounded";
 import { Heading } from "@/components/Heading";
 import { ButtonLink } from "@/components/ButtonLink";
 import { TallLogo } from "./TallLogo";
-import { WideLogo } from "./WideLogo";
+// import { WideLogo } from "./WideLogo";
 
 /**
  * Props for `Hero`.
@@ -26,8 +26,8 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
     >
 
       <div className="absolute inset-0">
-        <WideLogo className="w-full text-Vibrant-Purple "/>
-        <TallLogo />
+        {/* <WideLogo className="w-full text-Vibrant-Purple "/> */}
+        <TallLogo className="w-full text-Vibrant-Purple "/>
       </div>
 
       <div className="absolute inset-0 mx-auto mt-24 grid max-w-6xl grid-rows-[1fr,auto] place-items-end px-6 ~py-10/16">
