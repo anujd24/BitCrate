@@ -4,7 +4,72 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type HomepageDocumentDataSlicesSlice = HeroSlice;
+/**
+ * Content for Console documents
+ */
+interface ConsoleDocumentData {
+  /**
+   * Name field in *Console*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: console.name
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  name: prismic.KeyTextField;
+
+  /**
+   * Image field in *Console*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: console.image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Price (cents) field in *Console*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: console.price
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#number
+   */
+  price: prismic.NumberField;
+
+  /**
+   * Customizer Link field in *Console*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: console.customizer_link
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  customizer_link: prismic.LinkField;
+}
+
+/**
+ * Console document from Prismic
+ *
+ * - **API ID**: `console`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ConsoleDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<ConsoleDocumentData>,
+    "console",
+    Lang
+  >;
+
+type HomepageDocumentDataSlicesSlice = ProductGridSlice | HeroSlice;
 
 /**
  * Content for Homepage documents
@@ -149,7 +214,10 @@ export type SettingsDocument<Lang extends string = string> =
     Lang
   >;
 
-export type AllDocumentTypes = HomepageDocument | SettingsDocument;
+export type AllDocumentTypes =
+  | ConsoleDocument
+  | HomepageDocument
+  | SettingsDocument;
 
 /**
  * Primary content in *Hero → Default → Primary*
@@ -213,6 +281,88 @@ type HeroSliceVariation = HeroSliceDefault;
  */
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
 
+/**
+ * Item in *ProductGrid → Default → Primary → Product*
+ */
+export interface ProductGridSliceDefaultPrimaryProductItem {
+  /**
+   * Console field in *ProductGrid → Default → Primary → Product*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product_grid.default.primary.product[].console
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  console: prismic.ContentRelationshipField<"console">;
+}
+
+/**
+ * Primary content in *ProductGrid → Default → Primary*
+ */
+export interface ProductGridSliceDefaultPrimary {
+  /**
+   * Heading  field in *ProductGrid → Default → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product_grid.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField;
+
+  /**
+   * Body field in *ProductGrid → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product_grid.default.primary.body
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  body: prismic.RichTextField;
+
+  /**
+   * Product field in *ProductGrid → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product_grid.default.primary.product[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  product: prismic.GroupField<
+    Simplify<ProductGridSliceDefaultPrimaryProductItem>
+  >;
+}
+
+/**
+ * Default variation for ProductGrid Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProductGridSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ProductGridSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ProductGrid*
+ */
+type ProductGridSliceVariation = ProductGridSliceDefault;
+
+/**
+ * ProductGrid Shared Slice
+ *
+ * - **API ID**: `product_grid`
+ * - **Description**: ProductGrid
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProductGridSlice = prismic.SharedSlice<
+  "product_grid",
+  ProductGridSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -234,6 +384,8 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      ConsoleDocument,
+      ConsoleDocumentData,
       HomepageDocument,
       HomepageDocumentData,
       HomepageDocumentDataSlicesSlice,
@@ -245,6 +397,11 @@ declare module "@prismicio/client" {
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
+      ProductGridSlice,
+      ProductGridSliceDefaultPrimaryProductItem,
+      ProductGridSliceDefaultPrimary,
+      ProductGridSliceVariation,
+      ProductGridSliceDefault,
     };
   }
 }
