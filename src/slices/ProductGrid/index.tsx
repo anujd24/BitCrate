@@ -1,6 +1,6 @@
 import { Bounded } from "@/components/Bounded";
 import { Heading } from "@/components/Heading";
-import { Content } from "@prismicio/client";
+import { Content, isFilled } from "@prismicio/client";
 import { PrismicNextLink } from "@prismicio/next";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import { JSX } from "react";
@@ -29,10 +29,8 @@ const ProductGrid = ({ slice }: ProductGridProps): JSX.Element => {
         </div>
         
 
-        {slice.primary.product.map((item,index) => (
-          <PrismicNextLink field={item.console}>
-          Link
-        </PrismicNextLink>
+        {slice.primary.product.map(({console}) => (
+          isFilled.contentRelationship(console)
         ))}
     </Bounded>
   );
