@@ -18,13 +18,16 @@ const ProductGrid = ({ slice }: ProductGridProps): JSX.Element => {
     <Bounded
       data-slice-type = {slice.slice_type}
       data-slice-variation = {slice.variation}
-      className="bg-texture bg-Dark-Charcoal"
+      className=" bg-Dark-Charcoal"
       >
-        <Heading>
+        <Heading className="text-center ~mb-4/6 text-white" as="h2">
           <PrismicRichText field={slice.primary.heading} />
         </Heading>
         
-        <PrismicRichText field={slice.primary.body} />
+        <div className="text-center ~mb-6/10  text-white">
+          <PrismicRichText field={slice.primary.body} />
+        </div>
+        
 
         {slice.primary.product.map((item,index) => (
           <PrismicNextLink field={item.console}>
