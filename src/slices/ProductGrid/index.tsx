@@ -4,6 +4,7 @@ import { Content, isFilled } from "@prismicio/client";
 import { PrismicNextLink } from "@prismicio/next";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import { JSX } from "react";
+import ConsoleProduct from "./ConsoleProduct";
 
 /**
  * Props for `ProductGrid`.
@@ -29,8 +30,11 @@ const ProductGrid = ({ slice }: ProductGridProps): JSX.Element => {
         </div>
         
 
-        {slice.primary.product.map(({console}) => (
-          isFilled.contentRelationship(console)
+        {slice.primary.product.map(
+          ({console}) => (
+          isFilled.contentRelationship(console) && (
+            <ConsoleProduct key={console.id} id={console.id} />
+          )
         ))}
     </Bounded>
   );
