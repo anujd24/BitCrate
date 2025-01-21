@@ -1,5 +1,7 @@
+import { Bounded } from "@/components/Bounded";
 import { Content } from "@prismicio/client";
-import { SliceComponentProps } from "@prismicio/react";
+import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
+import { JSX } from "react";
 
 /**
  * Props for `ProductGrid`.
@@ -11,13 +13,13 @@ export type ProductGridProps = SliceComponentProps<Content.ProductGridSlice>;
  */
 const ProductGrid = ({ slice }: ProductGridProps): JSX.Element => {
   return (
-    <section
-      data-slice-type={slice.slice_type}
-      data-slice-variation={slice.variation}
-    >
-      Placeholder component for product_grid (variation: {slice.variation})
-      Slices
-    </section>
+    <Bounded
+      data-slice-type = {slice.slice_type}
+      data-slice-variation = {slice.variation}
+      >
+        <PrismicRichText field={slice.primary.heading} />
+        
+    </Bounded>
   );
 };
 
