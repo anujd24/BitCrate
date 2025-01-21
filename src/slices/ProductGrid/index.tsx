@@ -1,8 +1,7 @@
 import { Bounded } from "@/components/Bounded";
 import { Heading } from "@/components/Heading";
 import { Content, isFilled } from "@prismicio/client";
-import { PrismicNextLink } from "@prismicio/next";
-import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
+import { PrismicRichText, PrismicText, SliceComponentProps } from "@prismicio/react";
 import { JSX } from "react";
 import ConsoleProduct from "./ConsoleProduct";
 
@@ -22,7 +21,7 @@ const ProductGrid = ({ slice }: ProductGridProps): JSX.Element => {
       className=" bg-Dark-Charcoal"
       >
         <Heading className="text-center ~mb-4/6 text-white" as="h2">
-          <PrismicRichText field={slice.primary.heading} />
+          <PrismicText field={slice.primary.heading} />
         </Heading>
         
         <div className="text-center ~mb-6/10  text-white">
