@@ -28,13 +28,15 @@ const ProductGrid = ({ slice }: ProductGridProps): JSX.Element => {
           <PrismicRichText field={slice.primary.body} />
         </div>
         
-
-        {slice.primary.product.map(
+      <div>
+      {slice.primary.product.map(
           ({console}) => (
           isFilled.contentRelationship(console) && (
             <ConsoleProduct key={console.id} id={console.id} />
           )
         ))}
+      </div>
+            
     </Bounded>
   );
 };
