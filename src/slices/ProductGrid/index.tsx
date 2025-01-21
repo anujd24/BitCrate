@@ -28,7 +28,8 @@ const ProductGrid = ({ slice }: ProductGridProps): JSX.Element => {
           <PrismicRichText field={slice.primary.body} />
         </div>
         
-      <div>
+      <div className="grid w-full grid-cols-1 gap-4 md:grid-cols-2 
+      lg:grid:cols-4">
       {slice.primary.product.map(
           ({console}) => (
           isFilled.contentRelationship(console) && (
@@ -36,7 +37,7 @@ const ProductGrid = ({ slice }: ProductGridProps): JSX.Element => {
           )
         ))}
       </div>
-            
+
     </Bounded>
   );
 };
