@@ -18,7 +18,7 @@ const ProductGrid = ({ slice }: ProductGridProps): JSX.Element => {
       data-slice-variation = {slice.variation}
       >
         <PrismicRichText field={slice.primary.heading} />
-        
+        <PrismicRichText field={slice.primary.body} />
     </Bounded>
   );
 };
