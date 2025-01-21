@@ -17,15 +17,18 @@ async function ConsoleProduct({id}: Props) {
     : "Price not Available";
 
   return (
-    <div>
+    <div className='group relative mx-auto w-full max-w-72 px-8 pt-4'>
         <div className='flex text-white items-center justify-between 
         ~text-sm/2xl'>
             <span>{price}</span>
             <span className='inline-flex items-center gap-1'>
-                <FaStar/>
+                <FaStar className='text-yellow-500'/>34
             </span>
         </div>
-        <PrismicNextImage alt='' field={product.data.image} width={150}/>
+        <div className='-mb-1 overflow-hidden py-4'>
+            <PrismicNextImage alt='' field={product.data.image} width={150}/>
+        </div>
+        
     </div>
   )
 }
