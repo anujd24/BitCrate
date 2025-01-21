@@ -28,6 +28,11 @@ async function ConsoleProduct({id}: Props) {
         <div className='-mb-1 overflow-hidden py-4'>
             <PrismicNextImage alt='' field={product.data.image} width={150}/>
         </div>
+
+        <h3 className='my-2 text-center font-sans leading-tight
+         ~text-lg/xl'>
+            {product.data.name}
+        </h3>
         
     </div>
   )
