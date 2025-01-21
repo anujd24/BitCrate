@@ -29,7 +29,7 @@ const ProductGrid = ({ slice }: ProductGridProps): JSX.Element => {
         </div>
         
       <div className="grid w-full grid-cols-1 gap-4 md:grid-cols-2 
-      lg:grid:cols-4">
+      lg:grid-cols-4">
       {slice.primary.product.map(
           ({console}) => (
           isFilled.contentRelationship(console) && (
