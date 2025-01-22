@@ -28,6 +28,12 @@ const TextAndImage = ({ slice }: TextAndImageProps): JSX.Element => {
         theme === "Purple" && "bg-purple-500 text-white"
       )}
     >
+      
+      <div className="grid grid-cols-1 items-center gap-12 
+      md:grid-cols-2 md:gap-24">
+        <div className={clsx("flex flex-col items-center gap-8 text-center md:items-start md:text-left",
+          slice.variation === "imageOnLeft"
+        )}>
       <Heading size="lg" as="h2">
         <PrismicText field={slice.primary.heading} />
       </Heading>
@@ -43,8 +49,10 @@ const TextAndImage = ({ slice }: TextAndImageProps): JSX.Element => {
       >
       {slice.primary.button.text}
      </ButtonLink>
-     <PrismicNextImage field={slice.primary.background_image} />
-     <PrismicNextImage field={slice.primary.foreground_image} />
+     </div>
+     {/* <PrismicNextImage field={slice.primary.background_image} /> */}
+     <PrismicNextImage field={slice.primary.foreground_image} alt=""/>
+     </div>
     </Bounded>
   );
 };
