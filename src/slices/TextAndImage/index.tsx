@@ -1,3 +1,4 @@
+import { Bounded } from "@/components/Bounded";
 import { Content } from "@prismicio/client";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
@@ -13,7 +14,7 @@ export type TextAndImageProps = SliceComponentProps<Content.TextAndImageSlice>;
  */
 const TextAndImage = ({ slice }: TextAndImageProps): JSX.Element => {
   return (
-    <section
+    <Bounded
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
@@ -23,7 +24,7 @@ const TextAndImage = ({ slice }: TextAndImageProps): JSX.Element => {
      <PrismicNextLink field={slice.primary.button} />
      <PrismicNextImage field={slice.primary.background_image} />
      <PrismicNextImage field={slice.primary.foreground_image} />
-    </section>
+    </Bounded>
   );
 };
 
