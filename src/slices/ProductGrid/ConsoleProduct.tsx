@@ -42,6 +42,7 @@ async function ConsoleProduct({id}: Props) {
             className='mx-auto w-[58%] origin-top transform-gpu 
             transition-transform duration-500 ease-in-out group-hover:scale-150'/>
         </div>
+        <HorizontalLine className={HORIZONTAL_LINE_CLASSES}/>
 
         <h3 className='text-white my-2 text-center font-sans leading-tight
          ~text-lg/xl'>
