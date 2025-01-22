@@ -1,12 +1,19 @@
 import { ButtonLink } from '@/components/ButtonLink';
+import { HorizontalLine, VerticalLine } from '@/components/Line';
 import { createClient } from '@/prismicio';
 import { Content, isFilled } from '@prismicio/client';
 import { PrismicNextImage } from '@prismicio/next';
+import clsx from 'clsx';
 import { FaStar } from 'react-icons/fa6';
 
 type Props = {
     id:string;
 }
+
+const VERTICAL_LINE_CLASSES = "absolute top-0 h-full stroke-2 text-stone-300 transition-colors group-hover:text-Hot-Pink"
+
+const HORIZONTAL_LINE_CLASSES =
+  "-mx-8 stroke-2 text-stone-300 transition-colors group-hover:text-Hot-Pink";
 
 async function ConsoleProduct({id}: Props) {
     const client = createClient();
@@ -18,8 +25,11 @@ async function ConsoleProduct({id}: Props) {
     : "Price not Available";
 
   return (
-    <div className='group relative mx-auto w-full max-w-72 px-8 pt-4
-    '>
+    <div className='group relative mx-auto w-full max-w-72 px-8 pt-4'>
+        <VerticalLine className={clsx(VERTICAL_LINE_CLASSES,"left-4")}/>
+        <VerticalLine className={clsx(VERTICAL_LINE_CLASSES,"right-4")}/>
+        <HorizontalLine className={HORIZONTAL_LINE_CLASSES}/>
+
         <div className='flex text-white items-center justify-between 
         ~text-sm/2xl'>
             <span>{price}</span>
