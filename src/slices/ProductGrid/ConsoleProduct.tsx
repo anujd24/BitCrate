@@ -1,3 +1,4 @@
+import { ButtonLink } from '@/components/ButtonLink';
 import { createClient } from '@/prismicio';
 import { Content, isFilled } from '@prismicio/client';
 import { PrismicNextImage } from '@prismicio/next';
@@ -17,7 +18,8 @@ async function ConsoleProduct({id}: Props) {
     : "Price not Available";
 
   return (
-    <div className='group relative mx-auto w-full max-w-72 px-8 pt-4'>
+    <div className='group relative mx-auto w-full max-w-72 px-8 pt-4
+    border-4'>
         <div className='flex text-white items-center justify-between 
         ~text-sm/2xl'>
             <span>{price}</span>
@@ -34,6 +36,11 @@ async function ConsoleProduct({id}: Props) {
             {product.data.name}
         </h3>
         
+        <div className='absolute inset-0 flex items-center justify-center
+        opacity-0 transition-opacity duration-200 
+        group-hover:opacity-100'>
+            <ButtonLink field={product.data.customizer_link} className='bg-Hot-Pink rounded-lg px-2'>Customize</ButtonLink>
+        </div>
     </div>
   )
 }
