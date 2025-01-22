@@ -2,7 +2,7 @@ import { Bounded } from "@/components/Bounded";
 import { ButtonLink } from "@/components/ButtonLink";
 import { Heading } from "@/components/Heading";
 import { Content } from "@prismicio/client";
-import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
+import { PrismicNextImage } from "@prismicio/next";
 import { PrismicRichText, PrismicText, SliceComponentProps } from "@prismicio/react";
 import clsx from "clsx";
 import { JSX } from "react";
@@ -32,7 +32,7 @@ const TextAndImage = ({ slice }: TextAndImageProps): JSX.Element => {
       <div className="grid grid-cols-1 items-center gap-12 
       md:grid-cols-2 md:gap-24">
         <div className={clsx("flex flex-col items-center gap-8 text-center md:items-start md:text-left",
-          slice.variation === "imageOnLeft"
+          slice.variation === "imageOnLeft" && "md:order-2"
         )}>
       <Heading size="lg" as="h2">
         <PrismicText field={slice.primary.heading} />
