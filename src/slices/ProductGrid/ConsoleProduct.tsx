@@ -7,6 +7,18 @@ import clsx from 'clsx';
 import { FaStar } from 'react-icons/fa6';
 import { Scribble } from './Scribble';
 
+async function getDominantColor(url: string) {
+    const paletteURL = new URL(url);
+    paletteURL.searchParams.set("palette", "json");
+  
+    const res = await fetch(paletteURL);
+    const json = await res.json();
+  
+    return (
+      json.dominant_colors.vibrant?.hex || json.dominant_colors.vibrant_light?.hex
+    );
+  }
+
 type Props = {
     id:string;
 }
