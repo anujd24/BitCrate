@@ -1,5 +1,6 @@
 import { Content } from "@prismicio/client";
-import { SliceComponentProps } from "@prismicio/react";
+import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
+import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import { JSX } from "react";
 
 /**
@@ -16,8 +17,12 @@ const TextAndImage = ({ slice }: TextAndImageProps): JSX.Element => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      Placeholder component for text_and_image (variation: {slice.variation})
-      Slices
+     {slice.primary.theme}
+     <PrismicRichText field={slice.primary.heading} />
+     <PrismicRichText field={slice.primary.body} />
+     <PrismicNextLink field={slice.primary.button} />
+     <PrismicNextImage field={slice.primary.background_image} />
+     <PrismicNextImage field={slice.primary.foreground_image} />
     </section>
   );
 };
