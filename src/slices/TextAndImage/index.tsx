@@ -1,7 +1,9 @@
 import { Bounded } from "@/components/Bounded";
+import { ButtonLink } from "@/components/ButtonLink";
+import { Heading } from "@/components/Heading";
 import { Content } from "@prismicio/client";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
-import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
+import { PrismicRichText, PrismicText, SliceComponentProps } from "@prismicio/react";
 import clsx from "clsx";
 import { JSX } from "react";
 
@@ -26,10 +28,21 @@ const TextAndImage = ({ slice }: TextAndImageProps): JSX.Element => {
         theme === "Purple" && "bg-purple-500 text-white"
       )}
     >
-     {slice.primary.theme}
-     <PrismicRichText field={slice.primary.heading} />
-     <PrismicRichText field={slice.primary.body} />
-     <PrismicNextLink field={slice.primary.button} />
+      <Heading size="lg" as="h2">
+        <PrismicText field={slice.primary.heading} />
+      </Heading>
+     
+     <div className="max-w-md text-lg leading-relaxed">
+      <PrismicRichText field={slice.primary.body} />
+     </div>
+     
+     <ButtonLink 
+      field={slice.primary.button} 
+      color = {theme===  "Green" ? "orange" : "lime" }
+      className="bg-Hot-Pink text-white"
+      >
+      {slice.primary.button.text}
+     </ButtonLink>
      <PrismicNextImage field={slice.primary.background_image} />
      <PrismicNextImage field={slice.primary.foreground_image} />
     </Bounded>
