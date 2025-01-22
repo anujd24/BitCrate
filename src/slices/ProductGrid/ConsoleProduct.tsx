@@ -19,7 +19,7 @@ async function ConsoleProduct({id}: Props) {
 
   return (
     <div className='group relative mx-auto w-full max-w-72 px-8 pt-4
-    border-4'>
+    '>
         <div className='flex text-white items-center justify-between 
         ~text-sm/2xl'>
             <span>{price}</span>
