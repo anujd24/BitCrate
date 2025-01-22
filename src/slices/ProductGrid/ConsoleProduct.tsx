@@ -5,6 +5,7 @@ import { Content, isFilled } from '@prismicio/client';
 import { PrismicNextImage } from '@prismicio/next';
 import clsx from 'clsx';
 import { FaStar } from 'react-icons/fa6';
+import { Scribble } from './Scribble';
 
 type Props = {
     id:string;
@@ -37,7 +38,9 @@ async function ConsoleProduct({id}: Props) {
                 <FaStar className='text-yellow-500'/>34
             </span>
         </div>
-        <div className='-mb-1 overflow-hidden py-4'>
+        <div className='-mb-1 overflow-hidden py-4'> 
+            <Scribble className='absolute inset-0 h-full w-full'
+            color='#008000'/>
             <PrismicNextImage alt='' field={product.data.image} width={150}
             className='mx-auto w-[58%] origin-top transform-gpu 
             transition-transform duration-500 ease-in-out group-hover:scale-150'/>
