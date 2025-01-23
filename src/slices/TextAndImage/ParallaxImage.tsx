@@ -1,3 +1,5 @@
+"use client"
+
 import React from 'react'
 import { ImageField } from '@prismicio/client'
 import { PrismicNextImage } from '@prismicio/next';
@@ -17,11 +19,18 @@ export default function ParallaxImage({
   return (
     <div className={clsx("grid grid-cols-1 place-items-center", className)}>
         <div className='col-start-1 row-start-1 transition-transform'>
-            <PrismicNextImage field={backgroundImage} alt=''/>
+            <PrismicNextImage field={backgroundImage} 
+            alt=''
+            className='w-11/12'
+            />
         </div>
         
         <div className='col-start-1 row-start-1 transition-transform'>
-            <PrismicNextImage field={foregroundImage} alt=''/>
+            <PrismicNextImage field={foregroundImage} 
+            alt=''
+            imgixParams={{height:600}}
+            className='h-full max-h-[500px] w-auto'
+            />
         </div>
         
     </div>
