@@ -41,8 +41,8 @@ export default function ParallaxImage({
 
         return () => {
             window.removeEventListener("mousemove", onMouseMove);
-        }
-    })
+        };
+    }, []);
 
   return (
     <div className={clsx("grid grid-cols-1 place-items-center", className)}>
