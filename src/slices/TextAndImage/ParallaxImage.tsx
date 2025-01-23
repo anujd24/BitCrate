@@ -1,5 +1,6 @@
 import React from 'react'
 import { ImageField } from '@prismicio/client'
+import { PrismicNextImage } from '@prismicio/next';
 
 type Props = {
     foregroundImage: ImageField;
@@ -13,6 +14,9 @@ export default function ParallaxImage({
     classname,
 }: Props) {
   return (
-    <div>ParallaxImage</div>
-  )
+    <div>
+        <PrismicNextImage field={backgroundImage} alt=''/>
+        <PrismicNextImage field={foregroundImage} alt=''/>
+    </div>
+  );
 }
