@@ -36,7 +36,6 @@ export default function ParallaxImage({
                 x: xPercent * -20,
                 y: yPercent* -20
             }
-            console.log(targetPosition.current);
         }
 
         return () => {
