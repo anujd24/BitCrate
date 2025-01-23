@@ -38,9 +38,30 @@ export default function ParallaxImage({
             }
         }
 
+        function animationFrame() {
+            const { x: targetX, y: targetY } = targetPosition.current;
+            const { x: currentX, y: currentY } = currentPosition.current;
+      
+            const newX = currentX + (targetX - currentX) * 0.1;
+            const newY = currentY + (targetY - currentY) * 0.1;
+      
+            currentPosition.current = { x: newX, y: newY };
+      
+            if (backgroundRef.current) {
+              backgroundRef.current.style.transform = `translate(${newX}px, ${newY}px)`;
+            }
+            if (foregroundRef.current) {
+              foregroundRef.current.style.transform = `translate(${newX * 2.5}px, ${newY * 2.5}px)`;
+            }
+      
+            requestAnimationFrame(animationFrame);
+          }
+
         return () => {
             window.removeEventListener("mousemove", onMouseMove);
         };
+
+        
     }, []);
 
   return (
