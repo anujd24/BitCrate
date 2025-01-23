@@ -21,14 +21,27 @@ export default function ParallaxImage({
     const foregroundRef = useRef<HTMLDivElement>(null);
 
     const targetPosition = useRef({ x:0, y:0 });
+    const currentPosition = useRef({ x:0, y:0 });
 
     useEffect(() => {
         window.addEventListener("mousemove", onMouseMove);
 
         function onMouseMove(event:MouseEvent){
             const { innerWidth, innerHeight } = window;
+
+            const xPercent = (event.clientX / innerWidth - 0.5) * 2;
+            const yPercent = (event.clientY / innerHeight - 0.5) * 2;
+
+            targetPosition.current = {
+                x: xPercent * -20,
+                y: yPercent* -20
+            }
+            console.log(targetPosition.current);
         }
 
+        return () => {
+            window.removeEventListener("mousemove", onMouseMove);
+        }
     })
 
   return (
