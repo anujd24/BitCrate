@@ -24,6 +24,7 @@ export default function ParallaxImage({
     const currentPosition = useRef({ x:0, y:0 });
 
     useEffect(() => {
+      const frameId = requestAnimationFrame(animationFrame);
         window.addEventListener("mousemove", onMouseMove);
 
         function onMouseMove(event:MouseEvent){
@@ -34,7 +35,7 @@ export default function ParallaxImage({
 
             targetPosition.current = {
                 x: xPercent * -20,
-                y: yPercent* -20
+                y: yPercent * -20
             }
         }
 
@@ -59,21 +60,24 @@ export default function ParallaxImage({
 
         return () => {
             window.removeEventListener("mousemove", onMouseMove);
+            cancelAnimationFrame(frameId);
         };
-
-        
     }, []);
 
   return (
     <div className={clsx("grid grid-cols-1 place-items-center", className)}>
-        <div className='col-start-1 row-start-1 transition-transform'>
+        <div 
+          ref = {backgroundRef}
+          className='col-start-1 row-start-1 transition-transform'>
             <PrismicNextImage field={backgroundImage} 
             alt=''
             className='w-11/12'
             />
         </div>
         
-        <div className='col-start-1 row-start-1 transition-transform'>
+        <div 
+          ref={foregroundRef}
+          className='col-start-1 row-start-1 transition-transform'>
             <PrismicNextImage field={foregroundImage} 
             alt=''
             imgixParams={{height:600}}
