@@ -22,3 +22,9 @@ export async function generateMetadata(): Promise<Metadata> {
     description: page.data.meta_description,
   };
 }
+
+type TextAndImageBundleSlice = {
+  id: string;
+  slice_type: "text_and_image_bundle";
+  slices: Content.TextAndImageSlice[];
+};
