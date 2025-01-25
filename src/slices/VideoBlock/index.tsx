@@ -1,3 +1,4 @@
+import { Bounded } from "@/components/Bounded";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 import { JSX } from "react";
@@ -12,13 +13,13 @@ export type VideoBlockProps = SliceComponentProps<Content.VideoBlockSlice>;
  */
 const VideoBlock = ({ slice }: VideoBlockProps): JSX.Element => {
   return (
-    <section
+    <Bounded
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
       Placeholder component for video_block (variation: {slice.variation})
       Slices
-    </section>
+    </Bounded>
   );
 };
 
