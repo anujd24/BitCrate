@@ -28,6 +28,7 @@ const TextAndImage = ({ slice }: TextAndImageProps): JSX.Element => {
         theme === "Orange" && "bg-orange-500 text-white",
         theme === "Purple" && "bg-purple-500 text-white"
       )}
+      style={{}}
     >
       
       <div className="grid grid-cols-1 items-center gap-12 
