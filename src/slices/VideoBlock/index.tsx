@@ -28,7 +28,7 @@ const VideoBlock = ({ slice }: VideoBlockProps): JSX.Element => {
       <div
           className={clsx(
             MASK_CLASSES,
-            "bg-brand-lime absolute inset-0 ~translate-x-2/3 ~translate-y-2/3"
+            "bg-Hot-Pink absolute inset-0 ~translate-x-2/3 ~translate-y-2/3"
           )}
         />
         <LazyYouTubePlayer youTubeID={slice.primary.youtube_video_id}/>
