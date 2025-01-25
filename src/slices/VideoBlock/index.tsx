@@ -16,9 +16,12 @@ const VideoBlock = ({ slice }: VideoBlockProps): JSX.Element => {
     <Bounded
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
+      className="bg-zinc-900"
     >
-      Placeholder component for video_block (variation: {slice.variation})
-      Slices
+      <h2 className="sr-only">Video</h2>
+      <div className="relative aspect-video">
+
+      </div>
     </Bounded>
   );
 };
