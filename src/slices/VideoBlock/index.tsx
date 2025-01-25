@@ -1,5 +1,5 @@
 import { Bounded } from "@/components/Bounded";
-import { Content } from "@prismicio/client";
+import { Content, isFilled } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 import { JSX } from "react";
 import { LazyYouTubePlayer } from "./LazyYoutubePlayer";
@@ -31,7 +31,26 @@ const VideoBlock = ({ slice }: VideoBlockProps): JSX.Element => {
             "bg-Hot-Pink absolute inset-0 ~translate-x-2/3 ~translate-y-2/3"
           )}
         />
-        <LazyYouTubePlayer youTubeID={slice.primary.youtube_video_id}/>
+
+        <div
+          className={clsx(
+            MASK_CLASSES,
+            "bg-white absolute inset-0 ~translate-x-1/3 ~translate-y-1/2"
+          )}
+        />
+
+        <div
+          className={clsx(
+            MASK_CLASSES,
+            "bg-white absolute inset-0 ~translate-x-1/2 ~translate-y-1/3"
+          )}
+        />
+
+        <div>
+        {isFilled.keyText(slice.primary.youtube_video_id) ? (
+            <LazyYouTubePlayer youTubeID={slice.primary.youtube_video_id} />
+          ) : null}
+        </div>
       </div>
     </Bounded>
   );
