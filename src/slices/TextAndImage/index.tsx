@@ -22,7 +22,7 @@ const TextAndImage = ({ slice }: TextAndImageProps): JSX.Element => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       className={clsx(
-        "sticky top-0",
+        "sticky top-[calc(var(--index)*2rem)]",
         theme === "Blue" && "bg-blue-500 text-white",
         theme === "Green" && "bg-green-500 text-white",
         theme === "Orange" && "bg-orange-500 text-white",
