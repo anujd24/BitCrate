@@ -69,6 +69,78 @@ export type ConsoleDocument<Lang extends string = string> =
     Lang
   >;
 
+/**
+ * Content for Gamer documents
+ */
+interface GamerDocumentData {
+  /**
+   * First Name field in *Gamer*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gamer.first_name
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  first_name: prismic.KeyTextField;
+
+  /**
+   * Last Name field in *Gamer*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gamer.last_name
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  last_name: prismic.KeyTextField;
+
+  /**
+   * Photo Background field in *Gamer*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gamer.photo_background
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  photo_background: prismic.ImageField<never>;
+
+  /**
+   * Photo Foreground field in *Gamer*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gamer.photo_foreground
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  photo_foreground: prismic.ImageField<never>;
+
+  /**
+   * Customizer Link field in *Gamer*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gamer.customizer_link
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  customizer_link: prismic.LinkField;
+}
+
+/**
+ * Gamer document from Prismic
+ *
+ * - **API ID**: `gamer`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type GamerDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<GamerDocumentData>, "gamer", Lang>;
+
 type HomepageDocumentDataSlicesSlice =
   | VideoBlockSlice
   | TextAndImageSlice
@@ -220,6 +292,7 @@ export type SettingsDocument<Lang extends string = string> =
 
 export type AllDocumentTypes =
   | ConsoleDocument
+  | GamerDocument
   | HomepageDocument
   | SettingsDocument;
 
@@ -610,6 +683,8 @@ declare module "@prismicio/client" {
     export type {
       ConsoleDocument,
       ConsoleDocumentData,
+      GamerDocument,
+      GamerDocumentData,
       HomepageDocument,
       HomepageDocumentData,
       HomepageDocumentDataSlicesSlice,
