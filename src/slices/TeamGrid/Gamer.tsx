@@ -17,7 +17,7 @@ export default function Gamer({gamer, index}: Props) {
             group-hover:saturate-[.8]"/>
             <PrismicNextImage field = {gamer.data.photo_foreground} width={500} 
             imgixParams={{q:20}} alt="" className="transform transition-transform
-            duration-1000 ease-in-out group-hover:scale-11"/>
+            duration-1000 ease-in-out group-hover:scale-110"/>
 
             {gamer.data.first_name}
             {gamer.data.last_name}
