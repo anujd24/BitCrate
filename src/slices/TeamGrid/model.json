@@ -12,10 +12,10 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
-        "the_team": {
+        "heading": {
           "type": "StructuredText",
           "config": {
-            "label": "The Team",
+            "label": "Heading",
             "placeholder": "",
             "allowTargetBlank": true,
             "multi": "heading2"

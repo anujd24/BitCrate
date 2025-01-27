@@ -3,13 +3,13 @@
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
 		"primary": {
-			"the_team": {
+			"heading": {
 				"__TYPE__": "StructuredTextContent",
 				"value": [
 					{
 						"type": "heading2",
 						"content": {
-							"text": "Degree"
+							"text": "Forget"
 						}
 					}
 				]

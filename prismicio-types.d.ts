@@ -446,14 +446,14 @@ export type ProductGridSlice = prismic.SharedSlice<
  */
 export interface TeamGridSliceDefaultPrimary {
   /**
-   * The Team field in *TeamGrid → Default → Primary*
+   * Heading field in *TeamGrid → Default → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: team_grid.default.primary.the_team
+   * - **API ID Path**: team_grid.default.primary.heading
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  the_team: prismic.RichTextField;
+  heading: prismic.RichTextField;
 }
 
 /**
