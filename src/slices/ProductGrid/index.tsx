@@ -4,6 +4,7 @@ import { Content, isFilled } from "@prismicio/client";
 import { PrismicRichText, PrismicText, SliceComponentProps } from "@prismicio/react";
 import { JSX } from "react";
 import ConsoleProduct from "./ConsoleProduct";
+import SlideIn from "@/components/SlideIn";
 
 /**
  * Props for `ProductGrid`.
@@ -20,13 +21,18 @@ const ProductGrid = ({ slice }: ProductGridProps): JSX.Element => {
       data-slice-variation = {slice.variation}
       className=" bg-Dark-Charcoal"
       >
-        <Heading className="text-center ~mb-4/6 text-white" as="h2">
-          <PrismicText field={slice.primary.heading} />
-        </Heading>
+        <SlideIn>
+          <Heading className="text-center ~mb-4/6 text-white" as="h2">
+            <PrismicText field={slice.primary.heading} />
+          </Heading>
+        </SlideIn>
         
-        <div className="text-center ~mb-6/10  text-white">
-          <PrismicRichText field={slice.primary.body} />
-        </div>
+        <SlideIn>
+          <div className="text-center ~mb-6/10  text-white">
+            <PrismicRichText field={slice.primary.body} />
+          </div>
+        </SlideIn>
+          
         
       <div className="grid w-full grid-cols-1 gap-4 md:grid-cols-2 
       lg:grid-cols-4 ">
