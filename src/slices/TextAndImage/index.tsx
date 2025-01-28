@@ -53,7 +53,7 @@ const TextAndImage = ({ slice, index }: TextAndImageProps): JSX.Element => {
      <ButtonLink 
       field={slice.primary.button} 
       color = {theme===  "Green" ? "orange" : "lime" }
-      className="bg-Hot-Pink text-white"
+     
       >
       {slice.primary.button.text}
      </ButtonLink>

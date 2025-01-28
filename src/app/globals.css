@@ -80,6 +80,6 @@
   transform-origin: center center;
 }
 
-.gamer:hover .skater-scribble-path {
+.gamer:hover .gamer-scribble-path {
   stroke-dashoffset: 0;
 }
