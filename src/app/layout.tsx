@@ -3,6 +3,7 @@ import { Orbitron } from '@next/font/google';
 import { Roboto } from '@next/font/google';
 import "./globals.css";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const orbitron = Orbitron({ 
   subsets: ['latin'], 
@@ -33,7 +34,8 @@ export default function RootLayout({
 
         <main>
           <Header/>
-        {children}
+          {children}
+          <Footer/>
         </main>
         
       </body>

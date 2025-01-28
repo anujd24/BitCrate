@@ -47,6 +47,31 @@
             }
           }
         }
+      },
+      "footer_image": {
+        "type": "Image",
+        "config": {
+          "label": "Footer Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "footer_consoles": {
+        "type": "Group",
+        "config": {
+          "label": "Footer Consoles",
+          "repeat": true,
+          "fields": {
+            "console": {
+              "type": "Image",
+              "config": {
+                "label": "Console",
+                "constraint": {},
+                "thumbnails": []
+              }
+            }
+          }
+        }
       }
     }
   }

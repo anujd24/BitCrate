@@ -227,6 +227,21 @@ export interface SettingsDocumentDataNavigationItem {
 }
 
 /**
+ * Item in *Settings → Footer Consoles*
+ */
+export interface SettingsDocumentDataFooterConsolesItem {
+  /**
+   * Console field in *Settings → Footer Consoles*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.footer_consoles[].console
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  console: prismic.ImageField<never>;
+}
+
+/**
  * Content for Settings documents
  */
 interface SettingsDocumentData {
@@ -273,6 +288,30 @@ interface SettingsDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#group
    */
   navigation: prismic.GroupField<Simplify<SettingsDocumentDataNavigationItem>>;
+
+  /**
+   * Footer Image field in *Settings*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.footer_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  footer_image: prismic.ImageField<never>;
+
+  /**
+   * Footer Consoles field in *Settings*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.footer_consoles[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  footer_consoles: prismic.GroupField<
+    Simplify<SettingsDocumentDataFooterConsolesItem>
+  >;
 }
 
 /**
@@ -737,6 +776,7 @@ declare module "@prismicio/client" {
       SettingsDocument,
       SettingsDocumentData,
       SettingsDocumentDataNavigationItem,
+      SettingsDocumentDataFooterConsolesItem,
       AllDocumentTypes,
       HeroSlice,
       HeroSliceDefaultPrimary,
