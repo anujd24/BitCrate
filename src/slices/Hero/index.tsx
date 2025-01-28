@@ -7,6 +7,7 @@ import { Bounded } from "@/components/Bounded";
 import { Heading } from "@/components/Heading";
 import { ButtonLink } from "@/components/ButtonLink";
 import { TallLogo } from "./TallLogo";
+import InteractiveConsole from "./InteractiveConsole";
 // import { WideLogo } from "./WideLogo";
 
 /**
@@ -48,6 +49,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
     </div>
     </div>
 
+     <InteractiveConsole/>     
     </Bounded>
   );
 };
