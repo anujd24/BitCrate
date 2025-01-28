@@ -6,6 +6,7 @@ import {  PrismicText, SliceComponentProps } from "@prismicio/react";
 import React from "react";
 import { JSX } from "react";
 import Gamer from "./Gamer";
+import SlideIn from "@/components/SlideIn";
 
 /**
  * Props for `TeamGrid`.
@@ -25,16 +26,23 @@ const TeamGrid = async ({ slice }: TeamGridProps): Promise<JSX.Element> => {
       data-slice-variation={slice.variation}
       className="bg-violet-900"
     >
-      <Heading as="h2" size="lg" className="mb-8 text-center text-white">
-        <PrismicText field={slice.primary.heading} />
-      </Heading>
+
+      <SlideIn>
+        <Heading as="h2" size="lg" className="mb-8 text-center text-white">
+          <PrismicText field={slice.primary.heading} />
+        </Heading>
+      </SlideIn>
+      
       <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
         {gamers.map((gamer, index) => (
           <React.Fragment key={index}>
             {
-              gamer.data.first_name && 
-                <Gamer index={index} gamer= {gamer}/>
-            }
+              gamer.data.first_name && (
+                <SlideIn>
+                  <Gamer index={index} gamer= {gamer}/>
+                </SlideIn>
+                
+            )}
             </React.Fragment>
         ))}
       </div>
