@@ -4,12 +4,18 @@ import { PrismicImage } from '@prismicio/react';
 import React from 'react'
 import { Logo } from '@/components/Logo';
 import { Bounded } from './Bounded';
+import { asImageSrc } from '@prismicio/client';
+import { FooterPhysics } from './FooterPhysics';
+
 
 type Props = {}
 
 export default async function Footer({}: Props) {
     const client = createClient();
     const settings = await client.getSingle("settings");
+
+    const consoleTextureURLs = settings.data.footer_consoles.map((item) => asImageSrc(item.console, {h:500}))
+    .filter((url):url is string => Boolean(url))
 
   return (
     <footer className='bg-Dark-Charcoal text-white overflow-hidden'>
@@ -20,7 +26,8 @@ export default async function Footer({}: Props) {
                 fill
                 className='object-cover'
             />
-
+            <FooterPhysics boardTextureURLs={consoleTextureURLs}
+            className='absolute inset-0 overflow-hidden'/>
             <Logo className='pointer-events-none relative h-20 mix-blend-exclusion
             md:h-28 text-Hot-Pink'/>
         </div>
