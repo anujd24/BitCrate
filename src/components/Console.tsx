@@ -87,7 +87,7 @@ export function GamingController({
   const lightMaterial = useMemo(
     () =>
       new THREE.MeshBasicMaterial({
-        // color: lightColor,
+        color: lightColor,
       }),
     [lightColor, glowEffect]
   );
