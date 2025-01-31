@@ -1,24 +1,24 @@
-import { CSSProperties, ElementType, ReactNode } from "react";
 import clsx from "clsx";
+import React, { CSSProperties, ElementType, ReactNode } from "react";
 
 type BoundedProps = {
   as?: ElementType;
-  className?: string;
+  className?: string | undefined;
   style?: CSSProperties;
-  children: ReactNode;
+  children?: ReactNode; // 👈 Fix TypeScript issue
 };
 
 export function Bounded({
   as: Comp = "section",
   className,
-  children,
+  children = null, // 👈 Ensure children is not `never`
   ...restProps
 }: BoundedProps) {
   return (
     <Comp
       className={clsx(
         "px-6 ~py-10/16 [.header+&]:pt-44 [.header+&]:md:pt-32",
-        className
+        className as string
       )}
       {...restProps}
     >
