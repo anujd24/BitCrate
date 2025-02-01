@@ -35,7 +35,7 @@ type GLTFResult = GLTF & {
 }
 
 export function Console(props:ControllerProps ) {
-  const { nodes, materials } = useGLTF('/controller.gltf') as GLTFResult
+  const { nodes} = useGLTF('/controller.gltf') as GLTFResult
   return (
     <group {...props} dispose={null}>
       <group name="Scene">
