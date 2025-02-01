@@ -17,15 +17,13 @@ type ConsoleProps = {
 
 type GLTFResult = GLTF & {
   nodes: {
-    defaultMaterial: THREE.Mesh
-  }
-  materials: {
-    DefaultMaterial: THREE.MeshStandardMaterial
-  }
+    defaultMaterial: THREE.Mesh,
+  };
+  materials: {};
 }
 
 export function Console(props:ConsoleProps) {
-  const { nodes, materials } = useGLTF('/controller.gltf') as GLTFResult
+  const { nodes } = useGLTF('/controller.gltf') as GLTFResult;
   return (
     <group {...props} dispose={null}>
       <group name="Sketchfab_Scene">
@@ -37,8 +35,9 @@ export function Console(props:ConsoleProps) {
                 castShadow
                 receiveShadow
                 geometry={nodes.defaultMaterial.geometry}
-                material={materials.DefaultMaterial}
+                material={nodes.defaultMaterial.material}
               />
+              
             </group>
           </group>
         </group>
