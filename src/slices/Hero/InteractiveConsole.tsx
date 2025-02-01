@@ -4,6 +4,7 @@ import React, { Suspense } from 'react'
 import { Canvas } from "@react-three/fiber"
 import { Environment, OrbitControls } from "@react-three/drei"
 import { BoxGeometry, Group, Mesh, MeshBasicMaterial } from 'three'
+import { Console } from '@/components/Console'
 
 type Props = {}
 
@@ -31,6 +32,7 @@ function Scene (){
                 <meshStandardMaterial/>
                 <boxGeometry/>
             </mesh>
+            <Console bodyTextureURL={''} buttonTextureURLs={[]} joystickColor={''} buttonColor={''} lightColor={''}/>
         </group>
     )
 }
