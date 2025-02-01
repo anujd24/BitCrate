@@ -6,6 +6,7 @@ import * as THREE from 'three'
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
+import { group } from 'console';
 
 type ControllerProps = {};
 
@@ -34,14 +35,15 @@ type GLTFResult = GLTF & {
   materials: { }
 }
 
-export function Console(props:ControllerProps ) {
+export function Console(
+  props:ControllerProps ) {
   const { nodes} = useGLTF('/controller.gltf') as GLTFResult
   return (
     <group {...props} dispose={null}>
-      <group name="Scene">
+      <group name="Scene" >
         <group name="Sketchfab_model" rotation={[-Math.PI / 2, 0, 0]}>
           <group name="Collada_visual_scene_group" rotation={[Math.PI / 2, 0, 0]}>
-            <group name="Controller" position={[28.46, 21.11, -0.337]}>
+            <group name="Controller" position={[0, 0, 0]} scale={[0.3, 0.3, 0.3]}>
               <mesh
                 name="circlebutton"
                 castShadow
