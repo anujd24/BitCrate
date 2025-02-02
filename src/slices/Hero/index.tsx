@@ -19,8 +19,7 @@ export type HeroProps = SliceComponentProps<Content.HeroSlice>;
  * Component for "Hero" Slices.
  */
 const Hero = ({ slice }: HeroProps): JSX.Element => {
-  const bodyTexureURL = asImageSrc(slice.primary.controller_body_texture) || DEFAULT_BODY_TEXTURE;
-  const joystickTextureURL = asImageSrc(slice.primary.joystick_texture) || DEFAULT_JOYSTICK_TEXTURE;
+ 
   return (
     <Bounded
       data-slice-type={slice.slice_type}
