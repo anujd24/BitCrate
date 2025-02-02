@@ -1,19 +1,13 @@
 "use client"
 
-import * as THREE from "three"
-import React, { Suspense, useRef } from 'react'
+import React, { Suspense} from 'react'
 import { Canvas } from "@react-three/fiber"
 import { ContactShadows, Environment, OrbitControls } from "@react-three/drei"
 import { Console } from '@/components/Console'
 
-type Props = {
-    bodyTextureURL: string;
-     joystickTextureURL: string
-}
 
-export default function InteractiveConsole({
-    bodyTextureURL, joystickTextureURL
-}: Props) {
+
+export default function InteractiveConsole() {
   return (
     <div className='absolute inset-0 z-10 flex items-center justify-center'>
         <Canvas 
@@ -22,8 +16,6 @@ export default function InteractiveConsole({
         > 
             <Suspense>
                 <Scene
-                    bodyTextureURL = {bodyTextureURL} 
-                    joystickTextureURL = {joystickTextureURL}
                 />
             </Suspense>
         </Canvas>
@@ -31,19 +23,13 @@ export default function InteractiveConsole({
   )
 }
 
-function Scene ({
-    bodyTextureURL, joystickTextureURL
-}: Props    ){
+function Scene (){
     return (
         <group>
             <OrbitControls/>
             <Environment files={"/hdr/warehouse-256.hdr"}/>
             <group scale={[0.06, 0.06, 0.06]} position={[0, 0, 0]}>
-            <Console  
-                    bodyTextureURLs = {[bodyTextureURL]}
-                    bodyTextureURL = {[bodyTextureURL]}
-                    joystickTextureURLs = {[joystickTextureURL]}
-                    joystickTextureURL = {[joystickTextureURL]}
+            <Console 
                 />
             </group>
                 

@@ -1,17 +1,14 @@
 import { asImageSrc, Content } from "@prismicio/client";
-import { PrismicNextLink } from "@prismicio/next";
 import { PrismicRichText, PrismicText, SliceComponentProps } from "@prismicio/react";
 import { JSX } from "react";
 
 import { Bounded } from "@/components/Bounded";
 import { Heading } from "@/components/Heading";
 import { ButtonLink } from "@/components/ButtonLink";
-import { TallLogo } from "./TallLogo";
 import InteractiveConsole from "./InteractiveConsole";
 
 const DEFAULT_BODY_TEXTURE = "/textures/DefaultMaterial_baseColor.jpeg"
 const DEFAULT_JOYSTICK_TEXTURE = "/textures/DefaultMaterial_emissive.jpeg"
-// import { WideLogo } from "./WideLogo";
 
 /**
  * Props for `Hero`.
@@ -54,9 +51,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
     </div>
     </div>
 
-     <InteractiveConsole 
-     bodyTextureURL = {bodyTexureURL} 
-     joystickTextureURL = {joystickTextureURL}/>     
+     <InteractiveConsole />    
     </Bounded>
   );
 };
