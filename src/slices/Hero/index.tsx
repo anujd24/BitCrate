@@ -1,4 +1,4 @@
-import { asImageSrc, Content } from "@prismicio/client";
+import { Content } from "@prismicio/client";
 import { PrismicRichText, PrismicText, SliceComponentProps } from "@prismicio/react";
 import { JSX } from "react";
 
