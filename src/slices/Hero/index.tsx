@@ -1,4 +1,4 @@
-import { Content } from "@prismicio/client";
+import { asImageSrc, Content } from "@prismicio/client";
 import { PrismicNextLink } from "@prismicio/next";
 import { PrismicRichText, PrismicText, SliceComponentProps } from "@prismicio/react";
 import { JSX } from "react";
@@ -8,6 +8,9 @@ import { Heading } from "@/components/Heading";
 import { ButtonLink } from "@/components/ButtonLink";
 import { TallLogo } from "./TallLogo";
 import InteractiveConsole from "./InteractiveConsole";
+
+const DEFAULT_BODY_TEXTURE = "/textures/DefaultMaterial_baseColor.jpeg"
+const DEFAULT_JOYSTICK_TEXTURE = "/textures/DefaultMaterial_emissive.jpeg"
 // import { WideLogo } from "./WideLogo";
 
 /**
@@ -19,6 +22,8 @@ export type HeroProps = SliceComponentProps<Content.HeroSlice>;
  * Component for "Hero" Slices.
  */
 const Hero = ({ slice }: HeroProps): JSX.Element => {
+  const bodyTexureURL = asImageSrc(slice.primary.controller_body_texture) || DEFAULT_BODY_TEXTURE;
+  const joystickTextureURL = asImageSrc(slice.primary.joystick_texture) || DEFAULT_JOYSTICK_TEXTURE;
   return (
     <Bounded
       data-slice-type={slice.slice_type}
@@ -49,7 +54,9 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
     </div>
     </div>
 
-     <InteractiveConsole/>     
+     <InteractiveConsole 
+     bodyTextureURL = {bodyTexureURL} 
+     joystickTextureURL = {joystickTextureURL}/>     
     </Bounded>
   );
 };
