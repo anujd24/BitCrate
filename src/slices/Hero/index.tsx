@@ -7,8 +7,6 @@ import { Heading } from "@/components/Heading";
 import { ButtonLink } from "@/components/ButtonLink";
 import InteractiveConsole from "./InteractiveConsole";
 
-const DEFAULT_BODY_TEXTURE = "/textures/DefaultMaterial_baseColor.jpeg"
-const DEFAULT_JOYSTICK_TEXTURE = "/textures/DefaultMaterial_emissive.jpeg"
 
 /**
  * Props for `Hero`.
