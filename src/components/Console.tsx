@@ -37,7 +37,7 @@ type GLTFResult = GLTF & {
     trianglebutton: THREE.Mesh
     uparrowbutton: THREE.Mesh
   }
-  materials: { }
+  materials: object;
 }
 
 export function Console({
