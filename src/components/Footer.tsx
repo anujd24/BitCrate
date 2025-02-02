@@ -8,9 +8,8 @@ import { asImageSrc } from '@prismicio/client';
 import { FooterPhysics } from './FooterPhysics';
 
 
-type Props = {}
 
-export default async function Footer({}: Props) {
+export default async function Footer() {
     const client = createClient();
     const settings = await client.getSingle("settings");
 
