@@ -369,6 +369,26 @@ export interface HeroSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   button: prismic.LinkField;
+
+  /**
+   * Controller Body Texture field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.controller_body_texture
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  controller_body_texture: prismic.ImageField<never>;
+
+  /**
+   * Joystick Texture field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.joystick_texture
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  joystick_texture: prismic.ImageField<never>;
 }
 
 /**

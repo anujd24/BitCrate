@@ -40,6 +40,22 @@
             "allowText": true,
             "repeat": false
           }
+        },
+        "controller_body_texture": {
+          "type": "Image",
+          "config": {
+            "label": "Controller Body Texture",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "joystick_texture": {
+          "type": "Image",
+          "config": {
+            "label": "Joystick Texture",
+            "constraint": {},
+            "thumbnails": []
+          }
         }
       },
       "items": {}
