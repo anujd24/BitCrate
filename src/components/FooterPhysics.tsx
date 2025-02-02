@@ -20,16 +20,12 @@ export function FooterPhysics({
   boardTextureURLs = [],
   className,
 }: FooterPhysicsProps) {
-  // The div we'll inject our canvas into
   const scene = useRef<HTMLDivElement>(null);
-  // Engine handles the physics simulations
   const engine = useRef(Engine.create());
-  // Intersection Observer state
   const [inView, setInView] = useState(false);
-  // We show fewer boards on mobile
   const [isMobile, setIsMobile] = useState(false);
 
-  // Handle mobile detection
+  
   useEffect(() => {
     const handleResize = () => {
       if (typeof window !== "undefined") {
@@ -37,7 +33,7 @@ export function FooterPhysics({
       }
     };
 
-    handleResize(); // Run on mount
+    handleResize(); 
     window.addEventListener("resize", handleResize);
 
     return () => {
@@ -45,12 +41,10 @@ export function FooterPhysics({
     };
   }, []);
 
-  // Fewer boards on mobile
   const limitedBoardTextures = isMobile
     ? boardTextureURLs.slice(0, 3)
     : boardTextureURLs;
 
-  // Intersection Observer to start/stop the physics simulation
   useEffect(() => {
     const currentScene = scene.current;
 
@@ -58,7 +52,7 @@ export function FooterPhysics({
       ([entry]) => {
         setInView(entry.isIntersecting);
       },
-      { threshold: 0.5 } // Trigger at 50% so users see the boards drop
+      { threshold: 0.5 } 
     );
 
     if (currentScene) observer.observe(currentScene);
@@ -71,7 +65,7 @@ export function FooterPhysics({
   useEffect(() => {
     if (!scene.current || !inView) return;
 
-    // If the user prefers reduced motion, don't run the physics simulation
+    
     const prefersReducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches;
@@ -80,11 +74,11 @@ export function FooterPhysics({
     const cw = scene.current.clientWidth;
     const ch = scene.current.clientHeight;
 
-    engine.current.gravity.y = 0.5; // Gravity on vertical axis
+    engine.current.gravity.y = 0.5; 
 
     // Create Matter.js renderer
     const render = Render.create({
-      element: scene.current, // attach to our scene div
+      element: scene.current, 
       engine: engine.current,
       options: {
         width: cw,
@@ -95,11 +89,9 @@ export function FooterPhysics({
       },
     });
 
-    // Add boundaries to the scene
     let boundaries = createBoundaries(cw, ch);
     World.add(engine.current.world, boundaries);
 
-    // Add mouse interaction for dragging boards
     const mouse = Mouse.create(render.canvas);
     // @ts-expect-error - matter.js has incorrect types
     mouse.element.removeEventListener("wheel", mouse.mousewheel);
@@ -133,7 +125,6 @@ export function FooterPhysics({
       World.add(engine.current.world, boundaries);
     }
 
-    // Create walls/boundaries around the scene to keep boards in
     function createBoundaries(width: number, height: number) {
       return [
         Bodies.rectangle(width / 2, -10, width, 20, { isStatic: true }), // Top
@@ -176,7 +167,6 @@ export function FooterPhysics({
     const ch = scene.current.clientHeight;
 
     const boards = limitedBoardTextures.map((texture) => {
-      // Randomize board position and rotation
       const x = Math.random() * cw;
       const y = Math.random() * (ch / 2 - 100) + 50;
       const rotation = ((Math.random() * 100 - 50) * Math.PI) / 180;
@@ -197,7 +187,7 @@ export function FooterPhysics({
     });
 
     if (boards.length > 0) {
-      World.add(engine.current.world, boards); // Add boards to the world
+      World.add(engine.current.world, boards); 
     }
 
     return () => {

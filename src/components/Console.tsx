@@ -7,12 +7,6 @@ import React from 'react'
 import { useGLTF } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
 
-type ControllerProps = {
-  bodyTextureURLs: string[];
-  bodyTextureURL : string[];
-  joystickTextureURLs : string[];
-  joystickTextureURL : string[];
-};
 
 type GLTFResult = GLTF & {
   nodes: {
