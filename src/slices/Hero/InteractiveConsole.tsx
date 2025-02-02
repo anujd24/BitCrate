@@ -4,7 +4,6 @@ import * as THREE from "three"
 import React, { Suspense, useRef } from 'react'
 import { Canvas } from "@react-three/fiber"
 import { ContactShadows, Environment, OrbitControls } from "@react-three/drei"
-import { BoxGeometry, Group, Mesh, MeshBasicMaterial } from 'three'
 import { Console } from '@/components/Console'
 
 type Props = {
