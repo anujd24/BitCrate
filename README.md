@@ -35,20 +35,20 @@ To set up BitCrate locally, follow these steps:
 git clone https://github.com/your-username/bitcrate.git
 cd bitcrate
 
----
+```
 
 ### 2️⃣ Install Dependencies
 ```bash 
 npm install
 # or
 yarn install
-
+```
 ### 3️⃣ Run the Development Server
 ```bash
 npm run dev
 # or
 yarn dev
-
+```
 -Now, open http://localhost:3000/ in your browser.
 
 ---
