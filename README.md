@@ -54,7 +54,7 @@ yarn dev
 ---
 
 ## 🤝 Contributing
-- Want to improve BitCrate? Follow these steps:
+ Want to improve BitCrate? Follow these steps:
 
 -  Fork the repo
 -  Create a branch (git checkout -b feature-name)
